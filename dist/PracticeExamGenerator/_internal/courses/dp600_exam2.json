@@ -1,0 +1,1279 @@
+{
+  "id": "dp600_exam2",
+  "title": "DP-600: Implementing Analytics Solutions Using Microsoft Fabric \u2014 Practice Exam #2",
+  "short_title": "DP-600 \u00b7 Practice Exam #2",
+  "passing_score": 45,
+  "description": "50 fresh, distinct questions targeting DP-600 core objectives.",
+  "domains": [
+    "Domain 1 \u00b7 Plan, Implement & Manage",
+    "Domain 2 \u00b7 Prepare and Serve Data",
+    "Domain 3 \u00b7 Implement & Manage Semantic Models",
+    "Domain 4 \u00b7 Explore and Analyze Data"
+  ],
+  "scoring_guide": [
+    {
+      "min": 45,
+      "label": "EXCELLENT \u2014 Likely exam-ready!"
+    },
+    {
+      "min": 38,
+      "label": "GOOD \u2014 Review missed domains and practice more."
+    },
+    {
+      "min": 0,
+      "label": "NEEDS WORK \u2014 More hands-on practice recommended."
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "Which Fabric capacity concept determines how much compute is available across all Fabric workloads in workspaces assigned to it?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Storage account tier"
+        },
+        {
+          "key": "B",
+          "text": "Capacity Units (CUs)"
+        },
+        {
+          "key": "C",
+          "text": "Workspace role"
+        },
+        {
+          "key": "D",
+          "text": "Tenant region"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Capacity Units (CUs) represent the compute resources available across Fabric workloads in a capacity."
+    },
+    {
+      "number": 2,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "A workspace admin notices that a capacity is frequently being throttled during business hours. Which action would most directly help diagnose the cause?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Reviewing the Fabric Capacity Metrics app for CU consumption by item and operation"
+        },
+        {
+          "key": "B",
+          "text": "Deleting all Viewer role assignments"
+        },
+        {
+          "key": "C",
+          "text": "Disabling Git integration"
+        },
+        {
+          "key": "D",
+          "text": "Renaming the workspace"
+        }
+      ],
+      "correct": "A",
+      "explanation": "The Capacity Metrics app breaks down CU consumption by item/operation, helping pinpoint what's driving throttling."
+    },
+    {
+      "number": 3,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "Which statement about Fabric trial capacities is accurate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "They never expire"
+        },
+        {
+          "key": "B",
+          "text": "They provide a temporary, no-cost way to explore Fabric features before committing to a paid capacity"
+        },
+        {
+          "key": "C",
+          "text": "They can only be used for Power BI, not other workloads"
+        },
+        {
+          "key": "D",
+          "text": "They require an Azure subscription with pay-as-you-go billing"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Fabric trial capacities offer a temporary, free way to try Fabric features before purchasing a capacity."
+    },
+    {
+      "number": 4,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "You want to prevent accidental deletion of a critical production workspace. Which practice helps mitigate this risk?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Restricting Admin role assignment to a small, controlled group and relying on deployment pipeline stage protections"
+        },
+        {
+          "key": "B",
+          "text": "Giving every user Admin rights so anyone can restore it"
+        },
+        {
+          "key": "C",
+          "text": "Disabling workspace monitoring"
+        },
+        {
+          "key": "D",
+          "text": "Removing the workspace from a capacity"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Limiting Admin access and using deployment pipeline governance reduces accidental deletion/modification risk."
+    },
+    {
+      "number": 5,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "In a deployment pipeline with Dev, Test, and Prod stages, what happens when you use \"deployment rules\" for a data source connection in the Test stage?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Nothing; deployment rules are not supported"
+        },
+        {
+          "key": "B",
+          "text": "They let you override specific configuration values (e.g., connection strings) so items behave correctly in that stage without manual reconfiguration each deployment"
+        },
+        {
+          "key": "C",
+          "text": "They automatically delete the Dev stage"
+        },
+        {
+          "key": "D",
+          "text": "They convert semantic models to DirectQuery"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Deployment rules let you customize stage-specific values (like data source connections) so promoted content works correctly without manual fixes each time."
+    },
+    {
+      "number": 6,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "Which of the following best describes the purpose of sensitivity labels in Fabric?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To classify and protect content (e.g., Confidential, Public) and optionally enforce protections like encryption"
+        },
+        {
+          "key": "B",
+          "text": "To assign workspace roles"
+        },
+        {
+          "key": "C",
+          "text": "To schedule refreshes"
+        },
+        {
+          "key": "D",
+          "text": "To configure Git branches"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Sensitivity labels classify and can enforce protection (e.g., encryption) on content based on data sensitivity."
+    },
+    {
+      "number": 7,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "A team wants a lightweight way to track lineage \u2014 which items feed which downstream reports \u2014 across a workspace. Which Fabric feature helps visualize this?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lineage view"
+        },
+        {
+          "key": "B",
+          "text": "Capacity Metrics app"
+        },
+        {
+          "key": "C",
+          "text": "OneLake shortcuts"
+        },
+        {
+          "key": "D",
+          "text": "RLS editor"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Lineage view visually maps upstream/downstream dependencies between items in a workspace."
+    },
+    {
+      "number": 8,
+      "domain": "Domain 1 \u00b7 Plan, Implement & Manage",
+      "text": "Which role is required, at minimum, to assign a workspace to a Fabric capacity? --- ## Domain 2: Prepare and Serve Data",
+      "options": [
+        {
+          "key": "A",
+          "text": "Viewer"
+        },
+        {
+          "key": "B",
+          "text": "Contributor"
+        },
+        {
+          "key": "C",
+          "text": "Capacity Admin (or workspace Admin with appropriate capacity permissions)"
+        },
+        {
+          "key": "D",
+          "text": "Member"
+        }
+      ],
+      "correct": "C",
+      "explanation": "Assigning a workspace to a capacity requires capacity administrator permissions (or equivalent elevated permission)."
+    },
+    {
+      "number": 9,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "You need to combine data from a lakehouse table and an on-premises SQL Server table into a single query for ad hoc analysis without building a full pipeline. What is a reasonable low-code approach?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Use Dataflow Gen2 to connect to both sources and merge queries in Power Query"
+        },
+        {
+          "key": "B",
+          "text": "Manually export both to CSV and merge in Notepad"
+        },
+        {
+          "key": "C",
+          "text": "This is not possible in Fabric"
+        },
+        {
+          "key": "D",
+          "text": "Use only DAX"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Dataflow Gen2 can connect to multiple sources (lakehouse, on-prem SQL via gateway) and merge them using Power Query."
+    },
+    {
+      "number": 10,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What does the Fabric SQL analytics endpoint of a lakehouse provide?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A read-only T-SQL interface for querying lakehouse Delta tables"
+        },
+        {
+          "key": "B",
+          "text": "A full read/write T-SQL interface identical to a Warehouse"
+        },
+        {
+          "key": "C",
+          "text": "A way to run Spark jobs"
+        },
+        {
+          "key": "D",
+          "text": "A way to edit Power Query steps"
+        }
+      ],
+      "correct": "A",
+      "explanation": "The SQL analytics endpoint provides read-only T-SQL querying of lakehouse Delta tables; writes must go through Spark."
+    },
+    {
+      "number": 11,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "You need to write a Spark job that reads a CSV file from the lakehouse Files section, cleans it, and writes it as a managed Delta table. Which Fabric item should you use?",
+      "options": [
+        {
+          "key": "A",
+          "text": "KQL Queryset"
+        },
+        {
+          "key": "B",
+          "text": "Notebook"
+        },
+        {
+          "key": "C",
+          "text": "Power BI report"
+        },
+        {
+          "key": "D",
+          "text": "Deployment pipeline"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Notebooks (using PySpark/Spark SQL) are used for custom data engineering logic like reading, cleaning, and writing Delta tables."
+    },
+    {
+      "number": 12,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which pipeline activity would you use to look up a single configuration value (e.g., last watermark date) from a table before running the rest of the pipeline?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Copy activity"
+        },
+        {
+          "key": "B",
+          "text": "Lookup activity"
+        },
+        {
+          "key": "C",
+          "text": "Wait activity"
+        },
+        {
+          "key": "D",
+          "text": "Set variable only"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Lookup activity retrieves a single value or small result set, commonly used for configuration/watermark values."
+    },
+    {
+      "number": 13,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What is the main purpose of the \"Get Data\" experience when creating a new Dataflow Gen2?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To connect to and select source data before applying Power Query transformations"
+        },
+        {
+          "key": "B",
+          "text": "To assign RLS roles"
+        },
+        {
+          "key": "C",
+          "text": "To create a new workspace"
+        },
+        {
+          "key": "D",
+          "text": "To publish a Power BI report"
+        }
+      ],
+      "correct": "A",
+      "explanation": "\"Get Data\" is where you connect to and select the source before transforming it with Power Query."
+    },
+    {
+      "number": 14,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "A pipeline needs to run the same set of activities once per file in a folder containing 100 files. Which activity should wrap the logic?",
+      "options": [
+        {
+          "key": "A",
+          "text": "If Condition"
+        },
+        {
+          "key": "B",
+          "text": "ForEach"
+        },
+        {
+          "key": "C",
+          "text": "Lookup"
+        },
+        {
+          "key": "D",
+          "text": "Copy data"
+        }
+      ],
+      "correct": "B",
+      "explanation": "ForEach iterates the same activity logic across a collection, such as one file per loop iteration."
+    },
+    {
+      "number": 15,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which of the following is a valid reason to use a Warehouse instead of a Lakehouse for a given workload?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The team primarily writes T-SQL and needs full read/write DDL/DML support with multi-table transactions"
+        },
+        {
+          "key": "B",
+          "text": "The team only needs to store unstructured images"
+        },
+        {
+          "key": "C",
+          "text": "The team wants to use PySpark exclusively"
+        },
+        {
+          "key": "D",
+          "text": "There is no valid reason; they are identical"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Warehouses are ideal when teams need full T-SQL DDL/DML and multi-table transactional support."
+    },
+    {
+      "number": 16,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What does \"schema-on-read\" mean in the context of a lakehouse Files section?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The schema is enforced strictly at write time for all files"
+        },
+        {
+          "key": "B",
+          "text": "Structure/schema is interpreted only when the data is read/queried, since raw files aren't necessarily structured or validated at ingestion"
+        },
+        {
+          "key": "C",
+          "text": "It refers to a feature that does not exist in Fabric"
+        },
+        {
+          "key": "D",
+          "text": "It means files cannot be queried at all"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Schema-on-read means structure is applied when data is queried/read, not necessarily enforced at ingestion."
+    },
+    {
+      "number": 17,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which command would you use in a Fabric notebook to remove old, unreferenced data files from a Delta table after running OPTIMIZE?",
+      "options": [
+        {
+          "key": "A",
+          "text": "VACUUM"
+        },
+        {
+          "key": "B",
+          "text": "DELETE FROM"
+        },
+        {
+          "key": "C",
+          "text": "TRUNCATE TABLE"
+        },
+        {
+          "key": "D",
+          "text": "DROP TABLE"
+        }
+      ],
+      "correct": "A",
+      "explanation": "VACUUM removes old, unreferenced data files no longer needed after operations like OPTIMIZE, based on a retention threshold."
+    },
+    {
+      "number": 18,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "You need near real-time ingestion of clickstream events from a web application into Fabric for dashboarding within seconds of occurrence. Which combination is most appropriate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dataflow Gen2 scheduled hourly"
+        },
+        {
+          "key": "B",
+          "text": "Eventstream feeding a KQL Database or lakehouse, paired with a real-time dashboard"
+        },
+        {
+          "key": "C",
+          "text": "A nightly pipeline with Copy activity"
+        },
+        {
+          "key": "D",
+          "text": "Manual CSV upload"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Eventstream feeding a KQL Database (or lakehouse) with a real-time dashboard supports low-latency ingestion and near-instant visibility."
+    },
+    {
+      "number": 19,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What is the effect of applying a Z-ORDER during an OPTIMIZE operation on a Delta table?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It alphabetically sorts column names"
+        },
+        {
+          "key": "B",
+          "text": "It co-locates related data in the same files based on specified columns, improving read performance for filters on those columns"
+        },
+        {
+          "key": "C",
+          "text": "It deletes duplicate rows"
+        },
+        {
+          "key": "D",
+          "text": "It encrypts the table"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Z-ORDER clusters related data together on disk to speed up filtering on the specified columns."
+    },
+    {
+      "number": 20,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which authentication method is commonly used for a Fabric pipeline's Copy activity connecting to an Azure Data Lake Storage Gen2 source?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Only anonymous access"
+        },
+        {
+          "key": "B",
+          "text": "Service principal, managed identity, or account key/SAS token, depending on configuration"
+        },
+        {
+          "key": "C",
+          "text": "Only Windows NTLM"
+        },
+        {
+          "key": "D",
+          "text": "Only email/password"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Fabric supports multiple auth methods for ADLS Gen2 connections, including service principal, managed identity, and keys/SAS tokens."
+    },
+    {
+      "number": 21,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "A data engineer wants to enforce schema consistency (matching column names/types) when writing to a Delta table, rejecting writes that don't match. What Delta feature supports this?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Schema enforcement (schema validation on write)"
+        },
+        {
+          "key": "B",
+          "text": "VACUUM"
+        },
+        {
+          "key": "C",
+          "text": "Shortcuts"
+        },
+        {
+          "key": "D",
+          "text": "Sensitivity labels"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Delta's schema enforcement rejects writes that don't conform to the table's defined schema, protecting data quality."
+    },
+    {
+      "number": 22,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which statement about shortcuts and Delta tables is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A shortcut to a folder containing Delta-formatted data can be read as a table without copying the underlying files"
+        },
+        {
+          "key": "B",
+          "text": "Shortcuts always copy the full dataset into the destination lakehouse"
+        },
+        {
+          "key": "C",
+          "text": "Shortcuts only work within the same workspace"
+        },
+        {
+          "key": "D",
+          "text": "Shortcuts cannot reference cloud storage outside of OneLake"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A shortcut can point to Delta-formatted data and be queried as a table without physically copying files."
+    },
+    {
+      "number": 23,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What is the primary benefit of using parameters in a Dataflow Gen2 or pipeline?",
+      "options": [
+        {
+          "key": "A",
+          "text": "They make the object read-only"
+        },
+        {
+          "key": "B",
+          "text": "They allow reusable, dynamic configuration (e.g., file paths, dates) without hardcoding values"
+        },
+        {
+          "key": "C",
+          "text": "They automatically create semantic models"
+        },
+        {
+          "key": "D",
+          "text": "They enable Git integration"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Parameters enable reusable, dynamic pipelines/dataflows by avoiding hardcoded values."
+    },
+    {
+      "number": 24,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "You need to merge new incoming records into an existing Delta table, updating matches and inserting new rows. Which SQL/Spark operation is designed for this?",
+      "options": [
+        {
+          "key": "A",
+          "text": "INSERT only"
+        },
+        {
+          "key": "B",
+          "text": "MERGE (upsert)"
+        },
+        {
+          "key": "C",
+          "text": "DROP and CREATE"
+        },
+        {
+          "key": "D",
+          "text": "SELECT INTO"
+        }
+      ],
+      "correct": "B",
+      "explanation": "MERGE performs an upsert: updating matched rows and inserting unmatched ones in a single operation."
+    },
+    {
+      "number": 25,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which Fabric item would be most appropriate for storing and querying large volumes of semi-structured JSON log data with millisecond-level query performance for time-based filtering?",
+      "options": [
+        {
+          "key": "A",
+          "text": "KQL Database"
+        },
+        {
+          "key": "B",
+          "text": "Power BI dataflow"
+        },
+        {
+          "key": "C",
+          "text": "Excel workbook in OneLake"
+        },
+        {
+          "key": "D",
+          "text": "SharePoint list"
+        }
+      ],
+      "correct": "A",
+      "explanation": "KQL Database is optimized for fast ingestion and querying of semi-structured, time-series data like logs."
+    },
+    {
+      "number": 26,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "What does \"capacity-aware\" scaling mean for Spark jobs in Fabric?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Spark jobs ignore capacity limits entirely"
+        },
+        {
+          "key": "B",
+          "text": "The compute resources available to Spark jobs are governed by the capacity's allocated Spark VCores/CUs"
+        },
+        {
+          "key": "C",
+          "text": "It refers only to Power BI report rendering"
+        },
+        {
+          "key": "D",
+          "text": "It applies only to on-premises gateways"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Spark compute for jobs draws from the capacity's allocated resources (e.g., Spark VCores), governed by capacity limits."
+    },
+    {
+      "number": 27,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "Which of the following best distinguishes a data pipeline's \"Copy data\" activity from a Dataflow Gen2?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Copy data is optimized for moving data at scale with minimal transformation; Dataflow Gen2 is designed for richer Power Query\u2013based transformation"
+        },
+        {
+          "key": "B",
+          "text": "They are functionally identical in every respect"
+        },
+        {
+          "key": "C",
+          "text": "Copy data can only move data within the same lakehouse"
+        },
+        {
+          "key": "D",
+          "text": "Dataflow Gen2 cannot connect to cloud sources"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Copy data activity focuses on efficient bulk data movement; Dataflow Gen2 focuses on Power Query\u2013based transformation."
+    },
+    {
+      "number": 28,
+      "domain": "Domain 2 \u00b7 Prepare and Serve Data",
+      "text": "A table in your lakehouse needs to be queried by both Spark notebooks and Power BI reports via DirectQuery. Which endpoint enables the Power BI DirectQuery connection? --- ## Domain 3: Implement and Manage Semantic Models",
+      "options": [
+        {
+          "key": "A",
+          "text": "The lakehouse's SQL analytics endpoint"
+        },
+        {
+          "key": "B",
+          "text": "The Spark job definition"
+        },
+        {
+          "key": "C",
+          "text": "The KQL Queryset"
+        },
+        {
+          "key": "D",
+          "text": "The Git integration endpoint"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Power BI DirectQuery against a lakehouse connects through its SQL analytics endpoint."
+    },
+    {
+      "number": 29,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "What is the purpose of a role-playing dimension in a semantic model (e.g., a single Date table used for both OrderDate and ShipDate)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is not supported in Power BI"
+        },
+        {
+          "key": "B",
+          "text": "Using inactive relationships (activated via USERELATIONSHIP in DAX) lets one dimension table serve multiple roles without duplicating it"
+        },
+        {
+          "key": "C",
+          "text": "It requires duplicating the Date table for each role"
+        },
+        {
+          "key": "D",
+          "text": "It only works with DirectQuery"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Role-playing dimensions use one physical table with multiple relationships (most inactive) activated via USERELATIONSHIP as needed."
+    },
+    {
+      "number": 30,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "Which DAX function would you use to explicitly change the filter context of a calculation, such as removing filters on the Product table?",
+      "options": [
+        {
+          "key": "A",
+          "text": "SUM"
+        },
+        {
+          "key": "B",
+          "text": "CALCULATE with ALL(Product)"
+        },
+        {
+          "key": "C",
+          "text": "CONCATENATE"
+        },
+        {
+          "key": "D",
+          "text": "IF"
+        }
+      ],
+      "correct": "B",
+      "explanation": "CALCULATE with ALL() modifies filter context, here removing filters applied to the Product table."
+    },
+    {
+      "number": 31,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "You need to create a table of distinct years for a Date table without importing it from a source. Which DAX approach is appropriate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A calculated table using DAX (e.g., using CALENDAR or CALENDARAUTO)"
+        },
+        {
+          "key": "B",
+          "text": "A Power Query custom function only"
+        },
+        {
+          "key": "C",
+          "text": "It is not possible to create tables via DAX"
+        },
+        {
+          "key": "D",
+          "text": "SUMX"
+        }
+      ],
+      "correct": "A",
+      "explanation": "DAX calculated tables (e.g., via CALENDAR/CALENDARAUTO) can generate a date table without a data source."
+    },
+    {
+      "number": 32,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "What does \"Mark as Date Table\" do in a semantic model?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Deletes the table"
+        },
+        {
+          "key": "B",
+          "text": "Tells Power BI to treat the table as a proper date dimension, enabling accurate time intelligence functions"
+        },
+        {
+          "key": "C",
+          "text": "Converts the table to DirectQuery"
+        },
+        {
+          "key": "D",
+          "text": "Hides the table from the field list"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Marking a table as a date table enables correct behavior for DAX time intelligence functions."
+    },
+    {
+      "number": 33,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "Which of the following is a best practice for measure organization in large semantic models?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Placing all measures in a single random table with no naming convention"
+        },
+        {
+          "key": "B",
+          "text": "Using display folders and a dedicated \"Measures\" table to group and organize related DAX measures"
+        },
+        {
+          "key": "C",
+          "text": "Avoiding measures entirely in favor of calculated columns"
+        },
+        {
+          "key": "D",
+          "text": "Renaming all tables to \"Table1\", \"Table2\", etc."
+        }
+      ],
+      "correct": "B",
+      "explanation": "Display folders and a dedicated measures table improve organization and discoverability in large models."
+    },
+    {
+      "number": 34,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "A semantic model uses Import mode. Which factor most directly affects how \"fresh\" the data appears to report viewers?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The report's color theme"
+        },
+        {
+          "key": "B",
+          "text": "The refresh schedule/frequency configured for the semantic model"
+        },
+        {
+          "key": "C",
+          "text": "The number of visuals on the report page"
+        },
+        {
+          "key": "D",
+          "text": "The workspace's Git integration status"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Data freshness in Import mode depends directly on how often/when scheduled refresh runs."
+    },
+    {
+      "number": 35,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "What is the effect of setting a relationship's cross-filter direction to \"Both\" in a semantic model?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Filters propagate in a single direction only"
+        },
+        {
+          "key": "B",
+          "text": "Filters can propagate in both directions across the relationship, which can introduce ambiguity in some models and should be used carefully"
+        },
+        {
+          "key": "C",
+          "text": "It disables the relationship"
+        },
+        {
+          "key": "D",
+          "text": "It converts the relationship to many-to-many automatically"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Bidirectional cross-filtering allows filters to flow both ways but can create ambiguous filter paths if overused."
+    },
+    {
+      "number": 36,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "Which feature lets you validate that RLS is correctly restricting data before publishing, by simulating a specific user's view?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\"View as\" role/user feature in Power BI Desktop"
+        },
+        {
+          "key": "B",
+          "text": "Deployment pipelines"
+        },
+        {
+          "key": "C",
+          "text": "OneLake shortcuts"
+        },
+        {
+          "key": "D",
+          "text": "Capacity Metrics app"
+        }
+      ],
+      "correct": "A",
+      "explanation": "\"View as\" lets you preview the model as a specific role or user to validate RLS behavior before publishing."
+    },
+    {
+      "number": 37,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "What is a key consideration when deciding between a calculated column and a measure for a given calculation?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Calculated columns are computed row-by-row at refresh/processing time and stored in the model (consuming memory); measures are computed dynamically at query time based on filter context"
+        },
+        {
+          "key": "B",
+          "text": "There is no difference; they behave identically"
+        },
+        {
+          "key": "C",
+          "text": "Measures always use more memory than calculated columns"
+        },
+        {
+          "key": "D",
+          "text": "Calculated columns can only reference other calculated columns"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Calculated columns are precomputed and stored (using memory); measures compute dynamically based on the current filter context at query time."
+    },
+    {
+      "number": 38,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "Which of the following would most likely cause a Direct Lake model to fall back to DirectQuery for a given query?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The report uses a Card visual"
+        },
+        {
+          "key": "B",
+          "text": "A query requires a feature or transformation not supported by Direct Lake for that specific table/version, triggering fallback behavior"
+        },
+        {
+          "key": "C",
+          "text": "The user has Viewer permissions"
+        },
+        {
+          "key": "D",
+          "text": "The model uses a star schema"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Direct Lake falls back to DirectQuery when a query needs something not supported directly by Direct Lake for that data."
+    },
+    {
+      "number": 39,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "You want to prevent business users from seeing a sensitive \"Cost\" column and its associated measures entirely, not just filtering rows. Which feature should you apply?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Row-level security (RLS)"
+        },
+        {
+          "key": "B",
+          "text": "Object-level security (OLS)"
+        },
+        {
+          "key": "C",
+          "text": "Sensitivity labels only"
+        },
+        {
+          "key": "D",
+          "text": "Workspace roles"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Object-level security (OLS) hides entire columns/tables and their associated measures from specified users/roles."
+    },
+    {
+      "number": 40,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "Which of the following is true about composite models that combine Import tables with DirectQuery tables from different sources?",
+      "options": [
+        {
+          "key": "A",
+          "text": "This configuration is not supported in Power BI"
+        },
+        {
+          "key": "B",
+          "text": "It enables blending cached and live data in a single model, though it requires attention to relationship and performance implications"
+        },
+        {
+          "key": "C",
+          "text": "It automatically converts all tables to Import"
+        },
+        {
+          "key": "D",
+          "text": "It requires disabling all relationships"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Composite models blend Import and DirectQuery sources but require careful design due to potential performance/relationship complexities."
+    },
+    {
+      "number": 41,
+      "domain": "Domain 3 \u00b7 Implement & Manage Semantic Models",
+      "text": "What is the recommended approach for handling many-to-many relationships between two dimension tables in a semantic model? --- ## Domain 4: Explore and Analyze Data",
+      "options": [
+        {
+          "key": "A",
+          "text": "Avoid them entirely; they are never supported"
+        },
+        {
+          "key": "B",
+          "text": "Use a bridge table or set the relationship cardinality to many-to-many with careful validation of filter behavior"
+        },
+        {
+          "key": "C",
+          "text": "Always use bidirectional filtering with no bridge table"
+        },
+        {
+          "key": "D",
+          "text": "Convert both tables to measures"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Many-to-many relationships are supported but are best handled with a bridge table or careful validation of many-to-many cardinality settings."
+    },
+    {
+      "number": 42,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "Which Power BI feature allows end users to create ad hoc \"what-if\" scenarios by adjusting a slider that feeds into a DAX calculation?",
+      "options": [
+        {
+          "key": "A",
+          "text": "What-if parameter"
+        },
+        {
+          "key": "B",
+          "text": "Row-level security"
+        },
+        {
+          "key": "C",
+          "text": "Deployment pipeline"
+        },
+        {
+          "key": "D",
+          "text": "OneLake shortcut"
+        }
+      ],
+      "correct": "A",
+      "explanation": "What-if parameters create a slicer-driven variable that feeds into DAX calculations for scenario analysis."
+    },
+    {
+      "number": 43,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "You want to highlight related data points across multiple visuals on a report page when a user clicks one visual. What behavior is this called?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bookmarking"
+        },
+        {
+          "key": "B",
+          "text": "Cross-highlighting/cross-filtering"
+        },
+        {
+          "key": "C",
+          "text": "Drillthrough"
+        },
+        {
+          "key": "D",
+          "text": "Tooltips"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Clicking a data point cross-highlights/cross-filters related visuals on the same page by default."
+    },
+    {
+      "number": 44,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "Which feature allows a user to click a data point in a summary report and navigate to a detailed report page filtered to that context?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Drillthrough"
+        },
+        {
+          "key": "B",
+          "text": "Bookmarks"
+        },
+        {
+          "key": "C",
+          "text": "Field parameters"
+        },
+        {
+          "key": "D",
+          "text": "Sync slicers"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Drillthrough navigates from a summary context to a detail page filtered on the selected data point."
+    },
+    {
+      "number": 45,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "A stakeholder wants to compare actual sales against a fixed target line on the same chart. Which technique is most appropriate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Adding a constant/target line via an analytics pane reference line or a measure representing the target"
+        },
+        {
+          "key": "B",
+          "text": "Removing the axis entirely"
+        },
+        {
+          "key": "C",
+          "text": "Using only a table visual with no chart"
+        },
+        {
+          "key": "D",
+          "text": "Applying RLS to hide the target"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A reference/target line (via the analytics pane or a target measure) overlays a constant comparison point on a chart."
+    },
+    {
+      "number": 46,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "Which visual is best suited to show the relationship/correlation between two numeric variables (e.g., marketing spend vs. revenue) across many data points?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Scatter chart"
+        },
+        {
+          "key": "B",
+          "text": "Card"
+        },
+        {
+          "key": "C",
+          "text": "Gauge"
+        },
+        {
+          "key": "D",
+          "text": "Slicer"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Scatter charts are designed to reveal correlation/relationships between two numeric variables across data points."
+    },
+    {
+      "number": 47,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "What is the purpose of \"Sync slicers\" in Power BI?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To apply the same slicer selection across multiple report pages"
+        },
+        {
+          "key": "B",
+          "text": "To hide slicers from viewers"
+        },
+        {
+          "key": "C",
+          "text": "To convert slicers into bookmarks"
+        },
+        {
+          "key": "D",
+          "text": "To disable filtering entirely"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Sync slicers apply a slicer's selection consistently across multiple pages in a report."
+    },
+    {
+      "number": 48,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "You want end users of a published report to export the underlying data of a visual to Excel for further analysis. Which capability enables this (subject to permissions)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Export data feature on the visual"
+        },
+        {
+          "key": "B",
+          "text": "Deployment pipelines"
+        },
+        {
+          "key": "C",
+          "text": "Git integration"
+        },
+        {
+          "key": "D",
+          "text": "OneLake shortcuts"
+        }
+      ],
+      "correct": "A",
+      "explanation": "The Export data option on a visual (when enabled and permitted) lets users export the underlying data."
+    },
+    {
+      "number": 49,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "Which DAX time intelligence function returns sales from the same date one year earlier, useful for year-over-year comparisons?",
+      "options": [
+        {
+          "key": "A",
+          "text": "TOTALYTD"
+        },
+        {
+          "key": "B",
+          "text": "SAMEPERIODLASTYEAR"
+        },
+        {
+          "key": "C",
+          "text": "CALENDAR"
+        },
+        {
+          "key": "D",
+          "text": "ALLSELECTED"
+        }
+      ],
+      "correct": "B",
+      "explanation": "SAMEPERIODLASTYEAR shifts the current date context back one year for prior-year comparisons."
+    },
+    {
+      "number": 50,
+      "domain": "Domain 4 \u00b7 Explore and Analyze Data",
+      "text": "A report author wants to let users pick which measure (e.g., Sales, Profit, or Quantity) is plotted on a chart, entirely from a dropdown in the report \u2014 without creating separate visuals for each. Which feature enables this? ---",
+      "options": [
+        {
+          "key": "A",
+          "text": "Field parameters"
+        },
+        {
+          "key": "B",
+          "text": "Row-level security"
+        },
+        {
+          "key": "C",
+          "text": "Bookmarks"
+        },
+        {
+          "key": "D",
+          "text": "Data alerts"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Field parameters let users dynamically choose which field/measure populates a visual from a dropdown, without duplicating visuals."
+    }
+  ]
+}
