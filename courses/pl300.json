@@ -1,0 +1,488 @@
+{
+  "id": "pl300",
+  "title": "PL-300: Microsoft Power BI Data Analyst",
+  "short_title": "PL-300 · Power BI Data Analyst",
+  "passing_score": 36,
+  "description": "Practice exam for the PL-300 certification covering Power BI data preparation, modeling, visualization, and deployment.",
+  "domains": [
+    "Domain 1 · Prepare the Data",
+    "Domain 2 · Model the Data",
+    "Domain 3 · Visualize and Analyze the Data",
+    "Domain 4 · Deploy and Maintain Assets"
+  ],
+  "scoring_guide": [
+    { "min": 36, "label": "EXCELLENT — Likely exam-ready!" },
+    { "min": 30, "label": "GOOD — Review missed domains and practice more." },
+    { "min": 0,  "label": "NEEDS WORK — More hands-on Power BI practice recommended." }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You need to connect to a SQL Server database in Power BI Desktop and load only rows where Status = 'Active'. Where should you apply this filter for best performance?",
+      "options": [
+        { "key": "A", "text": "In a DAX calculated table after loading all rows" },
+        { "key": "B", "text": "In Power Query (M), before the data is loaded, using a filter step or native query" },
+        { "key": "C", "text": "In a report-level filter on each visual" },
+        { "key": "D", "text": "In a sensitivity label" }
+      ],
+      "correct": "B",
+      "explanation": "Filtering in Power Query (query folding to the source) reduces the volume of data loaded into the model. Applying filters after load wastes memory and slows refresh."
+    },
+    {
+      "number": 2,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "Which Power Query feature allows a transformation step to be pushed back to the source database as a native SQL query rather than executed locally?",
+      "options": [
+        { "key": "A", "text": "Query folding" },
+        { "key": "B", "text": "Query caching" },
+        { "key": "C", "text": "Incremental refresh" },
+        { "key": "D", "text": "Data profiling" }
+      ],
+      "correct": "A",
+      "explanation": "Query folding translates Power Query M steps into source-native queries (e.g., SQL), so the heavy lifting is done at the database rather than in Power BI."
+    },
+    {
+      "number": 3,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You have a table with a column containing values like '2024-Q1', '2024-Q2'. You need to split this into separate Year and Quarter columns. Which Power Query transform achieves this?",
+      "options": [
+        { "key": "A", "text": "Merge Queries" },
+        { "key": "B", "text": "Split Column by Delimiter" },
+        { "key": "C", "text": "Group By" },
+        { "key": "D", "text": "Unpivot Columns" }
+      ],
+      "correct": "B",
+      "explanation": "Split Column by Delimiter (using '-' as the delimiter) creates two new columns, which you can then rename to Year and Quarter."
+    },
+    {
+      "number": 4,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You have separate Sales tables for 2022, 2023, and 2024 with identical schemas. You want to combine them into a single table. Which Power Query operation should you use?",
+      "options": [
+        { "key": "A", "text": "Merge Queries" },
+        { "key": "B", "text": "Append Queries" },
+        { "key": "C", "text": "Group By" },
+        { "key": "D", "text": "Pivot Columns" }
+      ],
+      "correct": "B",
+      "explanation": "Append Queries stacks tables with the same schema on top of each other (like SQL UNION ALL). Merge is for joining tables on a key (like SQL JOIN)."
+    },
+    {
+      "number": 5,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "Which Power Query data profiling tool shows the distribution of unique vs. duplicate values in a column?",
+      "options": [
+        { "key": "A", "text": "Column quality" },
+        { "key": "B", "text": "Column distribution" },
+        { "key": "C", "text": "Column profile" },
+        { "key": "D", "text": "Data type detection" }
+      ],
+      "correct": "B",
+      "explanation": "Column distribution shows distinct and unique counts as well as a histogram of value frequency. Column quality shows valid/error/empty percentages."
+    },
+    {
+      "number": 6,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You need to configure a large Import-mode dataset to only refresh the last 12 months of data each day, while keeping historical data intact. Which Power BI feature supports this?",
+      "options": [
+        { "key": "A", "text": "DirectQuery mode" },
+        { "key": "B", "text": "Incremental refresh" },
+        { "key": "C", "text": "Scheduled refresh with full reload" },
+        { "key": "D", "text": "Dataflow scheduled refresh" }
+      ],
+      "correct": "B",
+      "explanation": "Incremental refresh partitions the data by date range so only the recent window is refreshed each cycle, while older partitions remain untouched."
+    },
+    {
+      "number": 7,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You are importing data from an Excel workbook that has its data in a named Table (not just a sheet range). What is the recommended way to connect to it in Power BI Desktop?",
+      "options": [
+        { "key": "A", "text": "Connect to the workbook and select the named Table object in Navigator" },
+        { "key": "B", "text": "Copy-paste the data into Power BI" },
+        { "key": "C", "text": "Export Excel to CSV first" },
+        { "key": "D", "text": "Use a KQL query" }
+      ],
+      "correct": "A",
+      "explanation": "Connecting via the Excel connector and selecting the named Table ensures structural refresh reliability and query folding compatibility for supported sources."
+    },
+    {
+      "number": 8,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "A column in your source data contains a mix of numeric values and the text 'N/A'. When Power BI auto-detects the column type as Whole Number, the 'N/A' entries become errors. What is the best remediation?",
+      "options": [
+        { "key": "A", "text": "Delete all rows with errors" },
+        { "key": "B", "text": "Replace 'N/A' with null (or 0) in Power Query before the type change step" },
+        { "key": "C", "text": "Keep the column as Text type" },
+        { "key": "D", "text": "Ignore errors; they don't affect visuals" }
+      ],
+      "correct": "B",
+      "explanation": "Replacing 'N/A' with null before the type conversion step is the cleanest approach; the column then converts cleanly to numeric with nulls for missing values."
+    },
+    {
+      "number": 9,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "You need to combine data from a SQL table and a SharePoint list based on a matching CustomerID column. Which Power Query operation should you use?",
+      "options": [
+        { "key": "A", "text": "Append Queries" },
+        { "key": "B", "text": "Merge Queries (using CustomerID as the join key)" },
+        { "key": "C", "text": "Group By" },
+        { "key": "D", "text": "Transpose" }
+      ],
+      "correct": "B",
+      "explanation": "Merge Queries joins two tables on a shared column (like SQL JOIN). Append stacks rows from tables with the same schema."
+    },
+    {
+      "number": 10,
+      "domain": "Domain 1 · Prepare the Data",
+      "text": "What does the 'Enable load' option control for a Power Query query?",
+      "options": [
+        { "key": "A", "text": "Whether the query results are loaded into the data model or only used as an intermediate/reference step" },
+        { "key": "B", "text": "Whether the query can access the internet" },
+        { "key": "C", "text": "Whether RLS is applied" },
+        { "key": "D", "text": "Whether the query runs in parallel" }
+      ],
+      "correct": "A",
+      "explanation": "Disabling 'Enable load' means the query acts as a staging/helper query — its output is available for other queries but does not add a table to the data model."
+    },
+    {
+      "number": 11,
+      "domain": "Domain 2 · Model the Data",
+      "text": "In a star schema, a Fact table contains a SalesAmount column and foreign keys to Date, Customer, and Product dimension tables. Where should you define a 'Total Sales' measure?",
+      "options": [
+        { "key": "A", "text": "In the Date dimension table" },
+        { "key": "B", "text": "In the Fact (Sales) table" },
+        { "key": "C", "text": "In a dedicated 'Measures' table" },
+        { "key": "D", "text": "B or C — both are common and valid" }
+      ],
+      "correct": "D",
+      "explanation": "Measures can live in any table; placing them in the fact table is logical, while a dedicated hidden 'Measures' table keeps things organised. Both are widely accepted patterns."
+    },
+    {
+      "number": 12,
+      "domain": "Domain 2 · Model the Data",
+      "text": "Which DAX function returns the sum of an expression evaluated for each row in a table, ignoring current filter context on a specific column?",
+      "options": [
+        { "key": "A", "text": "SUMX" },
+        { "key": "B", "text": "CALCULATE(SUM(...), ALL(...))" },
+        { "key": "C", "text": "TOTALYTD" },
+        { "key": "D", "text": "RELATED" }
+      ],
+      "correct": "B",
+      "explanation": "CALCULATE with ALL() removes filters from specified columns, allowing a measure to compute totals unaffected by slicer/visual context on those columns."
+    },
+    {
+      "number": 13,
+      "domain": "Domain 2 · Model the Data",
+      "text": "You have a Sales table and want to show each product's sales as a percentage of the total across all products, regardless of which product is selected in a slicer. Which DAX pattern achieves this?",
+      "options": [
+        { "key": "A", "text": "SUM(Sales[Amount]) / SUM(Sales[Amount])" },
+        { "key": "B", "text": "DIVIDE(SUM(Sales[Amount]), CALCULATE(SUM(Sales[Amount]), ALL(Product)))" },
+        { "key": "C", "text": "SUMX(Product, Sales[Amount])" },
+        { "key": "D", "text": "TOTALYTD(SUM(Sales[Amount]), Dates[Date])" }
+      ],
+      "correct": "B",
+      "explanation": "DIVIDE with ALL(Product) in CALCULATE removes the product filter to get the grand total denominator, yielding each product's share of total."
+    },
+    {
+      "number": 14,
+      "domain": "Domain 2 · Model the Data",
+      "text": "What is the correct relationship direction to set between a Date dimension table and a Sales fact table to enable standard time intelligence calculations?",
+      "options": [
+        { "key": "A", "text": "Many-to-many, bidirectional" },
+        { "key": "B", "text": "One-to-many from Date to Sales, single direction (Date filters Sales)" },
+        { "key": "C", "text": "One-to-one, bidirectional" },
+        { "key": "D", "text": "Many-to-one from Date to Sales, bidirectional" }
+      ],
+      "correct": "B",
+      "explanation": "The standard star-schema pattern is one-to-many from the dimension (Date) to the fact (Sales), with a single-direction filter. Bidirectional is only needed in specific snowflake/bridge scenarios."
+    },
+    {
+      "number": 15,
+      "domain": "Domain 2 · Model the Data",
+      "text": "You need a DAX measure that returns sales for the same period in the previous year. Which function is most direct?",
+      "options": [
+        { "key": "A", "text": "TOTALYTD" },
+        { "key": "B", "text": "DATEADD(Dates[Date], -1, YEAR)" },
+        { "key": "C", "text": "CALCULATE(SUM(Sales[Amount]), SAMEPERIODLASTYEAR(Dates[Date]))" },
+        { "key": "D", "text": "PARALLELPERIOD(Dates[Date], -12, MONTH)" }
+      ],
+      "correct": "C",
+      "explanation": "SAMEPERIODLASTYEAR shifts the current date filter back exactly one year, making it the most readable choice for year-over-year comparisons."
+    },
+    {
+      "number": 16,
+      "domain": "Domain 2 · Model the Data",
+      "text": "What is the key difference between a calculated column and a measure in DAX?",
+      "options": [
+        { "key": "A", "text": "Calculated columns are evaluated at query time; measures are computed at refresh time" },
+        { "key": "B", "text": "Calculated columns are computed row-by-row at refresh and stored in the model; measures are evaluated dynamically at query time in filter context" },
+        { "key": "C", "text": "There is no meaningful difference" },
+        { "key": "D", "text": "Measures cannot use aggregation functions" }
+      ],
+      "correct": "B",
+      "explanation": "Calculated columns add a stored column to the table (consuming memory), while measures are computed on the fly and respond to filter context — making measures more flexible and memory-efficient for aggregations."
+    },
+    {
+      "number": 17,
+      "domain": "Domain 2 · Model the Data",
+      "text": "You need to look up the Category name from a Product dimension table for each row in a Sales calculated column. Which DAX function should you use?",
+      "options": [
+        { "key": "A", "text": "LOOKUPVALUE" },
+        { "key": "B", "text": "RELATED" },
+        { "key": "C", "text": "RELATEDTABLE" },
+        { "key": "D", "text": "VLOOKUP" }
+      ],
+      "correct": "B",
+      "explanation": "RELATED traverses an existing model relationship to retrieve a value from the 'one' side (Product) from the 'many' side (Sales). LOOKUPVALUE works without a relationship."
+    },
+    {
+      "number": 18,
+      "domain": "Domain 2 · Model the Data",
+      "text": "Which storage mode allows some tables to operate in Import and others in DirectQuery within the same Power BI model?",
+      "options": [
+        { "key": "A", "text": "Live Connection" },
+        { "key": "B", "text": "Composite model" },
+        { "key": "C", "text": "Push dataset" },
+        { "key": "D", "text": "Streaming dataset" }
+      ],
+      "correct": "B",
+      "explanation": "A Composite model combines Import-cached tables with DirectQuery tables in the same model, offering flexibility between performance and real-time freshness."
+    },
+    {
+      "number": 19,
+      "domain": "Domain 2 · Model the Data",
+      "text": "You want to enforce that Sales Manager A can only see data for Region = 'North' when they open the report. Which Power BI feature should you implement?",
+      "options": [
+        { "key": "A", "text": "Column-level security" },
+        { "key": "B", "text": "Row-level security (RLS) with a DAX filter on the Region column" },
+        { "key": "C", "text": "Object-level security" },
+        { "key": "D", "text": "Workspace Viewer role" }
+      ],
+      "correct": "B",
+      "explanation": "RLS filters rows via a DAX expression tied to user identity (e.g., USERPRINCIPALNAME()), so each user only sees their permitted rows."
+    },
+    {
+      "number": 20,
+      "domain": "Domain 2 · Model the Data",
+      "text": "What does the USERELATIONSHIP function do in DAX?",
+      "options": [
+        { "key": "A", "text": "Creates a new relationship at report run-time" },
+        { "key": "B", "text": "Activates an inactive relationship for the duration of a CALCULATE expression" },
+        { "key": "C", "text": "Deletes an existing relationship" },
+        { "key": "D", "text": "Returns all values from the related table" }
+      ],
+      "correct": "B",
+      "explanation": "USERELATIONSHIP temporarily activates an inactive relationship within a CALCULATE call, enabling role-playing dimension patterns (e.g., a Date table used for both OrderDate and ShipDate)."
+    },
+    {
+      "number": 21,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "A report page shows a bar chart filtered to 'North' region. A user clicks a bar representing Product A. What Power BI interaction automatically highlights the related data in other visuals on the page?",
+      "options": [
+        { "key": "A", "text": "Drillthrough" },
+        { "key": "B", "text": "Cross-filtering / cross-highlighting" },
+        { "key": "C", "text": "Bookmarks" },
+        { "key": "D", "text": "Sync slicers" }
+      ],
+      "correct": "B",
+      "explanation": "Clicking a data point in one visual automatically cross-filters or cross-highlights other visuals on the same page — this is default Power BI interaction behavior."
+    },
+    {
+      "number": 22,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "You want a button on a report page that, when clicked, navigates the user to a detail page pre-filtered by the selected product. Which feature should you use?",
+      "options": [
+        { "key": "A", "text": "Drill down" },
+        { "key": "B", "text": "Drillthrough" },
+        { "key": "C", "text": "Bookmarks" },
+        { "key": "D", "text": "Field parameters" }
+      ],
+      "correct": "B",
+      "explanation": "Drillthrough allows a user to right-click (or use a button) to navigate to a detail page pre-filtered by the context of the selected data point."
+    },
+    {
+      "number": 23,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "Which Power BI feature lets you save and restore a specific state of a report (filters, slicer selections, visual visibility) as a named snapshot?",
+      "options": [
+        { "key": "A", "text": "Personal bookmarks" },
+        { "key": "B", "text": "Report bookmarks" },
+        { "key": "C", "text": "Drillthrough pages" },
+        { "key": "D", "text": "A and B — both are types of bookmarks" }
+      ],
+      "correct": "D",
+      "explanation": "Both report bookmarks (created by the report author, shared with all viewers) and personal bookmarks (created by each viewer for themselves) save report state."
+    },
+    {
+      "number": 24,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "Which chart type is best for showing the proportional contribution of each product to total sales when there are 5 products?",
+      "options": [
+        { "key": "A", "text": "Line chart" },
+        { "key": "B", "text": "Pie or donut chart" },
+        { "key": "C", "text": "Scatter chart" },
+        { "key": "D", "text": "Waterfall chart" }
+      ],
+      "correct": "B",
+      "explanation": "Pie/donut charts are designed for part-to-whole relationships. With only 5 categories they remain readable; more categories make them unwieldy."
+    },
+    {
+      "number": 25,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "A user needs to see a report but should not be able to edit it or access the underlying data. Which Power BI sharing method provides this?",
+      "options": [
+        { "key": "A", "text": "Share the .pbix file directly" },
+        { "key": "B", "text": "Publish to the Power BI service and share the report link with view-only access" },
+        { "key": "C", "text": "Export to PowerPoint and email it" },
+        { "key": "D", "text": "Assign the Admin workspace role" }
+      ],
+      "correct": "B",
+      "explanation": "Publishing to the service and sharing with view access gives consumers a read-only, always-current view without exposing the .pbix or the model directly."
+    },
+    {
+      "number": 26,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "Which Power BI feature allows you to add an AI-powered visual that automatically finds and displays the key influencers of a selected metric?",
+      "options": [
+        { "key": "A", "text": "Decomposition tree" },
+        { "key": "B", "text": "Key influencers visual" },
+        { "key": "C", "text": "Q&A visual" },
+        { "key": "D", "text": "Smart narrative" }
+      ],
+      "correct": "B",
+      "explanation": "The Key Influencers visual uses AI to identify which categorical factors most influence a selected numeric metric up or down."
+    },
+    {
+      "number": 27,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "You want a slicer on Page 1 to also filter visuals on Page 2 and Page 3 of the same report. Which feature enables this?",
+      "options": [
+        { "key": "A", "text": "Drillthrough" },
+        { "key": "B", "text": "Sync slicers" },
+        { "key": "C", "text": "Cross-page filtering" },
+        { "key": "D", "text": "Bookmarks" }
+      ],
+      "correct": "B",
+      "explanation": "Sync slicers (View > Sync slicers) let you synchronise a slicer's selection across multiple report pages."
+    },
+    {
+      "number": 28,
+      "domain": "Domain 3 · Visualize and Analyze the Data",
+      "text": "Which visual type displays sequential increases and decreases, making it ideal for showing how individual factors build up to a total (e.g., revenue bridge)?",
+      "options": [
+        { "key": "A", "text": "Funnel chart" },
+        { "key": "B", "text": "Waterfall chart" },
+        { "key": "C", "text": "Area chart" },
+        { "key": "D", "text": "Ribbon chart" }
+      ],
+      "correct": "B",
+      "explanation": "A waterfall chart shows incremental positive/negative contributions to a total — ideal for P&L bridges, revenue waterfalls, etc."
+    },
+    {
+      "number": 29,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "You want to promote a Power BI report from a Development workspace to a Production workspace while maintaining a separation of environments. Which Power BI feature is purpose-built for this?",
+      "options": [
+        { "key": "A", "text": "OneDrive for Business sync" },
+        { "key": "B", "text": "Deployment pipelines" },
+        { "key": "C", "text": "Export and import .pbix" },
+        { "key": "D", "text": "Git integration" }
+      ],
+      "correct": "B",
+      "explanation": "Deployment pipelines automate promotion of Power BI content (reports, datasets, dashboards) across Development, Test, and Production stages."
+    },
+    {
+      "number": 30,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "You publish a Power BI report to the service. The underlying dataset is in Import mode and pulls from an on-premises SQL Server. What must you configure for scheduled refresh to work?",
+      "options": [
+        { "key": "A", "text": "Nothing additional; it refreshes automatically" },
+        { "key": "B", "text": "An on-premises data gateway and valid data source credentials in the dataset settings" },
+        { "key": "C", "text": "A VPN connection on the Power BI gateway" },
+        { "key": "D", "text": "A DirectQuery connection" }
+      ],
+      "correct": "B",
+      "explanation": "An on-premises gateway acts as a bridge between the Power BI cloud service and on-premises data. Valid credentials must also be configured in the dataset settings."
+    },
+    {
+      "number": 31,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "What is a Power BI app, and how does it differ from a workspace?",
+      "options": [
+        { "key": "A", "text": "A Power BI app is a bundled, published collection of dashboards and reports shared with a broad audience; a workspace is the collaborative authoring environment" },
+        { "key": "B", "text": "They are the same thing" },
+        { "key": "C", "text": "Apps are only available in Premium capacity" },
+        { "key": "D", "text": "Workspaces can be shared externally; apps cannot" }
+      ],
+      "correct": "A",
+      "explanation": "An App packages selected content from a workspace into a curated, versioned distribution for consumers. The workspace is where authors build and collaborate."
+    },
+    {
+      "number": 32,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "Which endorsement level requires a Fabric/Power BI admin to grant approval and indicates the highest level of organizational trust for a dataset or report?",
+      "options": [
+        { "key": "A", "text": "Promoted" },
+        { "key": "B", "text": "Certified" },
+        { "key": "C", "text": "Featured" },
+        { "key": "D", "text": "Approved" }
+      ],
+      "correct": "B",
+      "explanation": "Certified endorsement requires tenant admin enablement and a designated certifier; it signals the item meets organizational data quality/governance standards. Promoted can be set by any owner."
+    },
+    {
+      "number": 33,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "You need to allow an external guest user (outside your organization) to view a Power BI report. What must be enabled?",
+      "options": [
+        { "key": "A", "text": "Publish to web" },
+        { "key": "B", "text": "Azure Active Directory B2B (external sharing) must be enabled by admin, and the guest must be invited" },
+        { "key": "C", "text": "Export to PDF and email it" },
+        { "key": "D", "text": "Row-level security must be disabled" }
+      ],
+      "correct": "B",
+      "explanation": "External sharing uses Azure AD B2B. The Power BI admin must enable external sharing, and the guest user must be added to the tenant as a B2B guest."
+    },
+    {
+      "number": 34,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "What does the Power BI Usage Metrics report show?",
+      "options": [
+        { "key": "A", "text": "DAX query execution times" },
+        { "key": "B", "text": "Who has viewed a report or dashboard, how many times, and from what platform" },
+        { "key": "C", "text": "Data source connection errors" },
+        { "key": "D", "text": "Workspace capacity utilization" }
+      ],
+      "correct": "B",
+      "explanation": "Usage Metrics tracks consumer engagement: view counts, unique viewers, and access methods — helping authors understand report adoption."
+    },
+    {
+      "number": 35,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "You need to ensure that a dataset used by 20 reports is refreshed nightly and that all 20 reports always reflect the latest data without each having its own connection. Which pattern should you use?",
+      "options": [
+        { "key": "A", "text": "Embed the same data in all 20 .pbix files" },
+        { "key": "B", "text": "Publish a shared (certified) dataset to the service; connect all 20 reports to it via Live Connection" },
+        { "key": "C", "text": "Schedule 20 separate refreshes" },
+        { "key": "D", "text": "Use 20 separate gateways" }
+      ],
+      "correct": "B",
+      "explanation": "A shared published dataset (the 'single source of truth' pattern) means all 20 reports connect live to one refreshed dataset — maximising consistency and minimizing duplication."
+    },
+    {
+      "number": 36,
+      "domain": "Domain 4 · Deploy and Maintain Assets",
+      "text": "Which Power BI sensitivity label action helps prevent users from accidentally saving confidential report data to an unprotected location?",
+      "options": [
+        { "key": "A", "text": "Row-level security" },
+        { "key": "B", "text": "Microsoft Information Protection (MIP) sensitivity labels that apply encryption and access controls to exports" },
+        { "key": "C", "text": "Workspace roles" },
+        { "key": "D", "text": "Deployment pipeline rules" }
+      ],
+      "correct": "B",
+      "explanation": "MIP sensitivity labels (set in Power BI and propagated via Microsoft Purview) can enforce encryption, access restrictions, and usage rules when data is exported to Excel, PDF, etc."
+    }
+  ]
+}
