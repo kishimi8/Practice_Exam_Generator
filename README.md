@@ -148,7 +148,38 @@ Open the course JSON file (e.g. `courses/dp600.json`) and append a new object to
 ## How to add a brand-new course
 
 1. Create a new file: `courses/<exam-id>.json`
-2. Use the template below:
+2. Copy the starter template from `practice_exam_template.json` in the project root.
+3. Edit the values for your exam:
+   - change `id`, `title`, and `short_title`
+   - add your own domain names under `domains`
+   - replace the sample questions with your real question bank
+   - ensure each `correct` value matches one of the option keys exactly
+4. Save the file. Next time you run `python3 exam_gui.py` or `python3 exam.py`, the new course appears automatically in the picker.
+
+### Using the JSON template
+
+A ready-to-edit template is included at `practice_exam_template.json`.
+
+```bash
+cp practice_exam_template.json courses/my_exam.json
+```
+
+Then open `courses/my_exam.json` in your editor and update the fields below:
+- `id`: a short machine-readable identifier, such as `az900`
+- `title`: the full exam name shown in the app
+- `short_title`: the compact label shown in the course picker
+- `passing_score`: the minimum number of correct answers to pass
+- `domains`: the categories used for grouping questions
+- `questions`: the list of exam questions and answers
+
+### Template checklist
+
+Before you run the app, confirm that:
+- every question has a `domain` that matches one entry in `domains`
+- every `correct` value matches one of the question option keys
+- the JSON file is valid and saved with a `.json` extension
+
+If you prefer, you can also create the file directly from scratch using the example below:
 
 ```json
 {

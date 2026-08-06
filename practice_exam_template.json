@@ -1,0 +1,43 @@
+{
+  "id": "your_exam_id",
+  "title": "Your Exam Title",
+  "short_title": "Your Exam · Topic",
+  "passing_score": 45,
+  "description": "Describe the exam focus, audience, and scope.",
+  "domains": [
+    "Domain 1 · Topic A",
+    "Domain 2 · Topic B",
+    "Domain 3 · Topic C"
+  ],
+  "scoring_guide": [
+    { "min": 45, "label": "EXCELLENT — Likely exam-ready!" },
+    { "min": 38, "label": "GOOD — Review missed domains and practice more." },
+    { "min": 0, "label": "NEEDS WORK — More study recommended." }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "domain": "Domain 1 · Topic A",
+      "text": "Replace this with your first question stem.",
+      "options": [
+        { "key": "A", "text": "First option" },
+        { "key": "B", "text": "Second option" },
+        { "key": "C", "text": "Third option" },
+        { "key": "D", "text": "Fourth option" }
+      ],
+      "correct": "B",
+      "explanation": "Explain why option B is correct."
+    },
+    {
+      "number": 2,
+      "domain": "Domain 2 · Topic B",
+      "text": "Add another question using the same structure.",
+      "options": [
+        { "key": "A", "text": "True" },
+        { "key": "B", "text": "False" }
+      ],
+      "correct": "A",
+      "explanation": "Briefly explain the answer."
+    }
+  ]
+}
