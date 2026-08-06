@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Microsoft Certification Practice Exam Engine
+Certification Practice Exam Engine
 ─────────────────────────────────────────────
 An interactive terminal interface featuring:
 - Course selector

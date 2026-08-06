@@ -3,7 +3,7 @@
 A Python-based certification exam practice suite with both a CLI engine and a modern GUI client. All exam content is stored in plain **JSON files** so the app remains content-agnostic.
 
 ```
-dp600-exam/
+Practice_Exam_Generator/
 ├── exam.py              ← CLI practice exam engine
 ├── exam_gui.py          ← Qt-based GUI front end
 ├── courses/
