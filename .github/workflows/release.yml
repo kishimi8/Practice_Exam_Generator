@@ -66,7 +66,16 @@ jobs:
   release:
     needs: [build-macos, build-windows]
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+    if: >-
+      ${
+        needs.build-macos.result == 'success' &&
+        needs.build-windows.result == 'success' &&
+        (
+          github.event_name == 'workflow_dispatch' ||
+          github.ref == 'refs/heads/main' ||
+          startsWith(github.ref, 'refs/tags/v')
+        )
+      }
 
     steps:
       - name: Download artifacts

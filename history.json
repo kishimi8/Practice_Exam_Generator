@@ -1,0 +1,32 @@
+{
+  "history": [
+    {
+      "course_id": "dp600",
+      "course_short_title": "DP-600 \u00b7 Microsoft Fabric",
+      "score": 42,
+      "total_questions": 50,
+      "pct": 84.0,
+      "passed": false,
+      "timestamp": "2026-08-07T01:37:51.125118",
+      "elapsed": 5214.0,
+      "domain_results": {
+        "Domain 1 \u00b7 Plan, Implement & Manage": {
+          "correct": 5,
+          "total": 8
+        },
+        "Domain 2 \u00b7 Prepare and Serve Data": {
+          "correct": 19,
+          "total": 20
+        },
+        "Domain 3 \u00b7 Implement & Manage Semantic Models": {
+          "correct": 11,
+          "total": 14
+        },
+        "Domain 4 \u00b7 Explore and Analyze Data": {
+          "correct": 7,
+          "total": 8
+        }
+      }
+    }
+  ]
+}
