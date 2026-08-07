@@ -1,11 +1,15 @@
 name: Build and Release Desktop App
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
       - main
     tags:
       - 'v*'
+      - 'V*'
   workflow_dispatch:
 
 jobs:
