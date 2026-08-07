@@ -50,9 +50,9 @@ else:
     SAVES_DIR = SCRIPT_DIR / "saves"
     HISTORY_FILE = SCRIPT_DIR / "history.json"
 
-COURSES_DIR.mkdir(exist_ok=True)
-SAVES_DIR.mkdir(exist_ok=True)
-HISTORY_FILE.parent.mkdir(exist_ok=True)
+COURSES_DIR.mkdir(parents=True, exist_ok=True)
+SAVES_DIR.mkdir(parents=True, exist_ok=True)
+HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 # ─────────────────────────────────────────────
 #  Qt Binding Fallback Wrapper
