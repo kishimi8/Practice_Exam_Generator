@@ -92,9 +92,16 @@ jobs:
       }}
 
     steps:
-      - name: Download artifacts
+      - name: Download macOS artifact
         uses: actions/download-artifact@v4
         with:
+          name: practice-exam-generator-macos
+          path: release-artifacts
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: practice-exam-generator-windows
           path: release-artifacts
 
       - name: Create release
