@@ -34,11 +34,16 @@ jobs:
         run: |
           python -m PyInstaller --noconfirm build.spec
 
+      - name: Zip macOS dist
+        run: |
+          cd dist
+          zip -r ../practice-exam-generator-macos.zip .
+
       - name: Upload macOS artifact
         uses: actions/upload-artifact@v4
         with:
           name: practice-exam-generator-macos
-          path: dist/
+          path: practice-exam-generator-macos.zip
 
   build-windows:
     runs-on: windows-latest
@@ -61,11 +66,16 @@ jobs:
         run: |
           python -m PyInstaller --noconfirm build.spec
 
+      - name: Zip Windows dist
+        shell: powershell
+        run: |
+          Compress-Archive -Path 'dist\*' -DestinationPath 'practice-exam-generator-windows.zip' -Force
+
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
           name: practice-exam-generator-windows
-          path: dist/
+          path: practice-exam-generator-windows.zip
 
   release:
     needs: [build-macos, build-windows]
@@ -93,7 +103,7 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           files: |
-            release-artifacts/practice-exam-generator-macos/**
-            release-artifacts/practice-exam-generator-windows/**
+            release-artifacts/practice-exam-generator-macos.zip
+            release-artifacts/practice-exam-generator-windows.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
