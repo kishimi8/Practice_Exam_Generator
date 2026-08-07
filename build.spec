@@ -1,11 +1,27 @@
 # -*- mode: python ; coding: utf-8 -*-
+from pathlib import Path
+
 block_cipher = None
 
+project_root = Path.cwd()
+
+
+def add_data_if_present(src, dest):
+    source_path = project_root / src
+    if not source_path.exists():
+        return None
+    if source_path.is_dir() and not any(source_path.iterdir()):
+        return None
+    return (src, dest)
+
+
 added_files = [
-    ('courses', 'courses'),
-    ('saves', 'saves'),
-    ('README.md', '.'),
-    ('practice_exam_template.json', '.'),
+    item for item in [
+        add_data_if_present('courses', 'courses'),
+        add_data_if_present('saves', 'saves'),
+        add_data_if_present('README.md', '.'),
+        add_data_if_present('practice_exam_template.json', '.'),
+    ] if item is not None
 ]
 
 a = Analysis(
