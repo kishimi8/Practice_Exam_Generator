@@ -14,6 +14,8 @@ import os
 import json
 import random
 import time
+import subprocess
+import shutil
 from pathlib import Path
 from datetime import datetime
 from dataclasses import dataclass, asdict
@@ -1473,6 +1475,38 @@ class ExamApp(QMainWindow):
         self.load_rev_question(0)
         self.review_win.show()
 
+
+def offer_remove_gatekeeper(parent=None):
+    """If running on macOS and the app appears installed under /Applications,
+    prompt the user for consent and run an elevated AppleScript to remove the
+    com.apple.quarantine attribute (Gatekeeper) for the app directory.
+    """
+    try:
+        if sys.platform != "darwin":
+            return
+        app_path = Path("/Applications/PracticeExamGenerator")
+        if not app_path.exists():
+            return
+
+        reply = QMessageBox.question(
+            parent, "Remove macOS Gatekeeper Quarantine",
+            f"Detected installation at {app_path}. Remove Gatekeeper quarantine to allow launching without 'unidentified developer' warnings? This requires administrator approval.",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+        if reply != QMessageBox.StandardButton.Yes:
+            return
+
+        # Use osascript to run the xattr command with administrator privileges
+        cmd = f'do shell script "xattr -dr com.apple.quarantine {str(app_path)}" with administrator privileges'
+        proc = subprocess.run(["osascript", "-e", cmd], capture_output=True, text=True)
+        if proc.returncode == 0:
+            QMessageBox.information(parent, "Success", "Gatekeeper quarantine removed successfully.")
+        else:
+            out = proc.stderr or proc.stdout or "Unknown error"
+            QMessageBox.critical(parent, "Failed", f"Failed to remove quarantine:\n{out}")
+    except Exception as e:
+        QMessageBox.critical(parent, "Error", f"Error while attempting to remove quarantine: {e}")
+
     def load_rev_question(self, idx):
         self.review_idx = idx
         q = self.review_qs[idx]
@@ -1540,6 +1574,11 @@ def main():
 
     win = ExamApp()
     win.show()
+    # Offer to remove macOS Gatekeeper quarantine when applicable
+    try:
+        offer_remove_gatekeeper(win)
+    except Exception:
+        pass
     sys.exit(app.exec())
 
 
