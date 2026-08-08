@@ -375,7 +375,8 @@ def load_history() -> List[Dict[str, Any]]:
     try:
         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
             return json.load(f).get("history", [])
-    except Exception:
+    except Exception as e:
+        print(red(f"Error reading history: {e}"))
         return []
 
 
@@ -383,8 +384,8 @@ def save_history(history: List[Dict[str, Any]]):
     try:
         with open(HISTORY_FILE, "w", encoding="utf-8") as f:
             json.dump({"history": history}, f, indent=2)
-    except Exception:
-        pass
+    except Exception as e:
+        print(red(f"Error saving history: {e}"))
 
 
 def load_exam_states() -> List[Dict[str, Any]]:
@@ -1140,39 +1141,41 @@ class ExamApp(QMainWindow):
 
     def save_current_exam_state(self):
         suggested_name = f"{self.current_course.id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        name, ok = QMessageBox.question(
+        reply = QMessageBox.question(
             self, "Save Session State",
             "Would you like to save this active exam and continue later?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
-        if ok == QMessageBox.StandardButton.Yes:
-            # Save State Data structure matching CLI Engine
-            state_file = SAVES_DIR / f"{suggested_name}.json"
-            state_data = {
-                "course_id": self.current_course.id,
-                "course_title": self.current_course.title,
-                "course_short_title": self.current_course.short_title,
-                "passing_score": self.current_course.passing_score,
-                "domains": self.current_course.domains,
-                "scoring_guide": self.current_course.scoring_guide,
-                "elapsed_time": float(self.elapsed_timer),
-                "timestamp": datetime.now().isoformat(),
-                "questions": [asdict(q) for q in self.questions_list]
-            }
-            try:
-                with open(state_file, "w", encoding="utf-8") as f:
-                    json.dump(state_data, f, indent=2)
+        if reply != QMessageBox.StandardButton.Yes:
+            return
 
-                # Clean up loaded save name if overwriting/resuming
-                if self.loaded_save_name:
-                    p = SAVES_DIR / f"{self.loaded_save_name}.json"
-                    if p.exists():
-                        p.unlink()
+        # Save State Data structure matching CLI Engine
+        state_file = SAVES_DIR / f"{suggested_name}.json"
+        state_data = {
+            "course_id": self.current_course.id,
+            "course_title": self.current_course.title,
+            "course_short_title": self.current_course.short_title,
+            "passing_score": self.current_course.passing_score,
+            "domains": self.current_course.domains,
+            "scoring_guide": self.current_course.scoring_guide,
+            "elapsed_time": float(self.elapsed_timer),
+            "timestamp": datetime.now().isoformat(),
+            "questions": [asdict(q) for q in self.questions_list]
+        }
+        try:
+            with open(state_file, "w", encoding="utf-8") as f:
+                json.dump(state_data, f, indent=2)
 
-                QMessageBox.information(self, "State Saved", "Your exam progress has been saved. Returning to Hub.")
-                self.show_hub()
-            except Exception as e:
-                QMessageBox.critical(self, "Save Error", f"Could not save progress file: {e}")
+            # Clean up loaded save name if overwriting/resuming
+            if self.loaded_save_name:
+                p = SAVES_DIR / f"{self.loaded_save_name}.json"
+                if p.exists():
+                    p.unlink()
+
+            QMessageBox.information(self, "State Saved", "Your exam progress has been saved. Returning to Hub.")
+            self.show_hub()
+        except Exception as e:
+            QMessageBox.critical(self, "Save Error", f"Could not save progress file: {e}")
 
     # ─────────────────────────────────────────────
     #  Results & Learner Analytics Logs
@@ -1265,7 +1268,11 @@ class ExamApp(QMainWindow):
         self.save_list.clear()
         states = load_exam_states()
         for s in states:
-            ts = datetime.fromisoformat(s.get("timestamp", "")).strftime("%Y-%m-%d %H:%M")
+            ts = "Unknown"
+            try:
+                ts = datetime.fromisoformat(s.get("timestamp", "")).strftime("%Y-%m-%d %H:%M")
+            except Exception:
+                pass
             answered = sum(1 for q in s.get("questions", []) if q.get("user_answer") is not None)
             item_lbl = f"{s.get('course_short_title')}  ({answered}/{len(s.get('questions', []))} Qs)  •  Saved: {ts}"
             item = QListWidgetItem(item_lbl)
