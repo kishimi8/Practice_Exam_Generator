@@ -24,12 +24,22 @@ from datetime import datetime
 # ─────────────────────────────────────────────
 #  Paths & Persistence Setup
 # ─────────────────────────────────────────────
+def get_app_data_dir() -> Path:
+    if sys.platform == "win32":
+        base_dir = os.environ.get("APPDATA") or str(Path.home())
+        return Path(base_dir) / "PracticeExamGenerator"
+    if sys.platform == "darwin":
+        return Path.home() / "Library" / "Application Support" / "PracticeExamGenerator"
+    return Path.home() / ".local" / "share" / "PracticeExamGenerator"
+
 SCRIPT_DIR = Path(__file__).parent
 COURSES_DIR = SCRIPT_DIR / "courses"
-SAVES_DIR = SCRIPT_DIR / "saves"
-HISTORY_FILE = SCRIPT_DIR / "history.json"
+APP_DATA_DIR = get_app_data_dir()
+SAVES_DIR = APP_DATA_DIR / "saves"
+HISTORY_FILE = APP_DATA_DIR / "history.json"
 
 COURSES_DIR.mkdir(exist_ok=True)
+APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
 SAVES_DIR.mkdir(exist_ok=True)
 
 # ─────────────────────────────────────────────

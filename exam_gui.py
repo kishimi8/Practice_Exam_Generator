@@ -40,19 +40,14 @@ def get_resource_path(*parts: str) -> Path:
     return Path(__file__).resolve().parent.joinpath(*parts)
 
 
-if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
-    SCRIPT_DIR = get_resource_path()
-    COURSES_DIR = get_resource_path("courses")
-    APP_DATA_DIR = get_app_data_dir()
-    SAVES_DIR = APP_DATA_DIR / "saves"
-    HISTORY_FILE = APP_DATA_DIR / "history.json"
-else:
-    SCRIPT_DIR = Path(__file__).resolve().parent
-    COURSES_DIR = SCRIPT_DIR / "courses"
-    SAVES_DIR = SCRIPT_DIR / "saves"
-    HISTORY_FILE = SCRIPT_DIR / "history.json"
+SCRIPT_DIR = get_resource_path() if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") else Path(__file__).resolve().parent
+COURSES_DIR = get_resource_path("courses") if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") else SCRIPT_DIR / "courses"
+APP_DATA_DIR = get_app_data_dir()
+SAVES_DIR = APP_DATA_DIR / "saves"
+HISTORY_FILE = APP_DATA_DIR / "history.json"
 
 COURSES_DIR.mkdir(parents=True, exist_ok=True)
+APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
 SAVES_DIR.mkdir(parents=True, exist_ok=True)
 HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
 
